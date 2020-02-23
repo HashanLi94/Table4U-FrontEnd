@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {ReservationManagementComponent} from './reservation-management/reservation-management.component';
 
 
 
 const routes: Routes = [
   // Main redirect
+  { path: 'reservation', component: ReservationManagementComponent },
 
 ];
 

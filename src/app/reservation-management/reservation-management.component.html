@@ -1,0 +1,51 @@
+<p>reservation-management works!</p>
+
+
+<!--<div >-->
+
+<!--  <form class="col-md-12"  [formGroup]="searchForm">-->
+
+<!--    <label class="col-md-3">-->
+<!--      Pax Count:-->
+<!--      <input type="text" formControlName="paxCount">-->
+<!--    </label>-->
+
+<!--    <label class="col-md-3">-->
+<!--      Date:-->
+<!--      <input type="text" formControlName="date">-->
+<!--    </label>-->
+
+<!--    <label class="col-md-3">-->
+<!--      Time Slot:-->
+<!--      <input type="text" formControlName="timeSlot">-->
+<!--    </label>-->
+
+<!--    <button class="col-md-3" type="button" (click)="searchAvailability(searchForm.value)">Search</button>-->
+
+<!--    </form>-->
+<!--  -->
+
+
+
+<!--</div>-->
+
+
+
+<div>
+  <form [formGroup]="searchForm" >
+    <label for="paxCount">First Name</label>
+    <input type="text" id="paxCount" name="paxCount" formControlName="paxCount" placeholder="Your name..">
+
+    <label for="date">Last Name</label>
+    <input type="text" id="date" name="lastname" formControlName="date" placeholder="Your last name..">
+
+    <label for="timeSlot">Time Slot</label>
+    <select id="timeSlot" name="timeSlot" formControlName="timeSlot">
+      <option *ngFor="let timeSlot of timeSlots" value="{{timeSlot}}">{{timeSlot}}</option>
+
+
+    </select>
+
+    <input type="button" value="Search" (click)="searchAvailability(searchForm.value)">
+  </form>
+</div>
