@@ -48,7 +48,25 @@ console.log(this.timeSlots);
   }
 
   searchAvailability(formValue: any) {
-    console.log(formValue);
+
+    try {
+      console.log("tessese");
+      const promise = this.reservationManagementService.getAvailableTables('2019-02-14', '20:30:00');
+
+      promise.then(response => {
+
+          this.availableTables = response;
+          console.log(this.availableTables);
+        },
+        error => {
+          console.log(error);
+        });
+    } catch (exception) {
+
+      console.log(exception.message);
+
+    }
+
   }
 
 }

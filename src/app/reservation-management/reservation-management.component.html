@@ -1,51 +1,43 @@
-<p>reservation-management works!</p>
-
-
-<!--<div >-->
-
-<!--  <form class="col-md-12"  [formGroup]="searchForm">-->
-
-<!--    <label class="col-md-3">-->
-<!--      Pax Count:-->
-<!--      <input type="text" formControlName="paxCount">-->
-<!--    </label>-->
-
-<!--    <label class="col-md-3">-->
-<!--      Date:-->
-<!--      <input type="text" formControlName="date">-->
-<!--    </label>-->
-
-<!--    <label class="col-md-3">-->
-<!--      Time Slot:-->
-<!--      <input type="text" formControlName="timeSlot">-->
-<!--    </label>-->
-
-<!--    <button class="col-md-3" type="button" (click)="searchAvailability(searchForm.value)">Search</button>-->
-
-<!--    </form>-->
-<!--  -->
-
-
-
-<!--</div>-->
-
-
-
+<!--Search Bar-->
 <div>
-  <form [formGroup]="searchForm" >
-    <label for="paxCount">First Name</label>
-    <input type="text" id="paxCount" name="paxCount" formControlName="paxCount" placeholder="Your name..">
+  <form class="form-inline" [formGroup]="searchForm">
+    <div class="form-group col-md-3">
+      <label for="paxCount"> Pax Count</label>
 
-    <label for="date">Last Name</label>
-    <input type="text" id="date" name="lastname" formControlName="date" placeholder="Your last name..">
+      <input class="form-control" type="text" id="paxCount" name="paxCount" formControlName="paxCount"
+             placeholder="Your name..">
 
-    <label for="timeSlot">Time Slot</label>
-    <select id="timeSlot" name="timeSlot" formControlName="timeSlot">
-      <option *ngFor="let timeSlot of timeSlots" value="{{timeSlot}}">{{timeSlot}}</option>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="date">Date</label>
+      <input type="text" id="date" name="lastname" formControlName="date" placeholder="Your last name..">
+    </div>
 
 
-    </select>
+    <div class="input-group col-md-3">
+      <label class="sr-only" for="timeSlot">Time Slot</label>
+      <select class="custom-select" id="timeSlot" name="timeSlot" formControlName="timeSlot">
+        <option selected>Choose...</option>
+        <option *ngFor="let timeSlot of timeSlots" value="{{timeSlot}}">{{timeSlot}}</option>
 
-    <input type="button" value="Search" (click)="searchAvailability(searchForm.value)">
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <input class="btn btn-success " type="button" value="Search" (click)="searchAvailability(searchForm.value)">
+    </div>
+
+
   </form>
+</div>
+
+
+<!--Table Arrangement-->
+<div class="container">
+  <div class="row" >
+    <div class="col-md-4" *ngFor="let table of availableTables">
+      <app-table [tableDetails]="table" ></app-table>
+    </div>
+  </div>
 </div>

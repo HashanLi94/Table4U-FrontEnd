@@ -1,18 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReservationManagementComponent } from './reservation-management.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReservationManagementComponent} from './reservation-management.component';
 import {ReservationManagementService} from './service/reservation-management.service';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TableComponent} from './table/table.component';
 
 
 @NgModule({
-  declarations: [ReservationManagementComponent],
+  declarations: [ReservationManagementComponent, TableComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,6 +23,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
   ],
-  exports: [ReservationManagementComponent]
+  exports: [ReservationManagementComponent, TableComponent ]
 })
-export class ReservationManagementModule { }
+export class ReservationManagementModule {
+}
